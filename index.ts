@@ -8,7 +8,7 @@ const __dirname = path.resolve();
 
 const app = express();
 // Reason for port 80: https://docs.bitnami.com/general/infrastructure/nodejs/get-started/understand-default-ports/
-const port = 80;
+const port = 4000;
 
 app.use(express.json());
 
@@ -30,7 +30,7 @@ const updateToken = "Bearer CiGtOSWVa2XGea75S8Or8KkWEv7eHb8TQNInHFTrAquWYgD1UaiI
 app.post("/updateRotation", (req, res) => {
     console.log(req.header("Authorization"));
     console.log(req.body);
-    if(req.header("Authorization") === updateToken) {
+    if (req.header("Authorization") === updateToken) {
         if (connectedClients.find(element => element.id === req.body.id) != undefined) {
             console.log("OK")
             connectedClients.find(element => element.id === req.body.id)!.team = req.body.toTeam;
@@ -56,7 +56,7 @@ app.post("/updateRotation", (req, res) => {
 
 app.get("/connected", (req, res) => {
     console.log("Request at /connected.");
-    if(req.header("Authorization") === updateToken) {
+    if (req.header("Authorization") === updateToken) {
         console.log("Request authorized");
         res.send({ error: { error: false }, data: connectedClients });
     } else {
