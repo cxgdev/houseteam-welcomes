@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../static/styles.css" />
+    <title>Admin</title>
+</head>
+
+<body class="admin-body">
+    <h1>Admin Panel</h1>
+    <div style="padding: 16px;">
+        <label>Paste token below</label>
+        <br /><br />
+        <input type="password" placeholder="Paste token" id="token">
+        <button style="width: 50px" id="submit-token">OK</button>
+    </div>
+    <br />
+    <div style="padding: 64px; border-radius: 8px; background-color: #1f1f1f">
+        <h3 style="margin-top: 0px;">Change room's team</h3>
+        <select id="room-select">
+            <option value="">-- Select room --</option>
+        </select>
+        <select id="team-select">
+            <option value="">-- Select team --</option>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+        </select>
+        <br /><br />
+        <button id="rtss">Change room</button>
+    </div>
+    <br />
+    <div style="padding: 32px; border-radius: 8px; background-color: #1f1f1f; height: 200px; overflow: hidden;">
+        <h3 style="margin-top: 0px;">Console</h3>
+        <!-- This element mirrors console.log() calls. See https://github.com/bahmutov/console-log-div -->
+        <fieldset id="console-log-div"></fieldset>
+        <script src="https://rawgit.com/bahmutov/console-log-div/master/console-log-div.js"></script>
+    </div>
+    <script src="../../static/admin.js" type="module"></script>
+</body>
+</html>
