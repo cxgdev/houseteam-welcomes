@@ -23,7 +23,7 @@
 }
 
 .green {
-    background-color: #155c13;
+    background-color: #123d11;
 }
 
 .yellow {
@@ -33,6 +33,31 @@
 h1 {
     font-family: "Montserrat", sans-serif;
     color: white;
+    font-size: 42pt;
+}
+
+.team {
+    text-shadow: #080808 2px 2px, #080808 0 0 24px;
+}
+
+.background-text {
+    font-family: "Roboto Serif", serif;
+    font-weight: 600;
+    color: rgba(66, 66, 66, 0.3);
+    font-size: 256pt;
+    position: absolute;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    transform: rotate(5deg);
+}
+
+.activity-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    color: #FFFFFF;
+    font-size: 64pt;
 }
 
 /*
@@ -50,7 +75,7 @@ h1 {
 }
 
 input[type="password"] {
-    width: 200px;
+    max-width: 200px;
     padding: 8px;
     background-color: #1f1f1f;
     border: none;
@@ -60,22 +85,17 @@ input[type="password"] {
 }
 
 input[type="password"]:active {
-    width: 200px;
-    padding: 8px;
-    background-color: #1f1f1f;
     outline: #2f2f2f solid 1px;
     outline-offset: 2px;
 }
 
 input[type="password"]:focus {
-    width: 200px;
-    padding: 8px;
     outline: #2f2f2f solid 1px;
     outline-offset: 2px;
 }
 
 select {
-    width: 200px;
+    max-width: 400px;
     padding: 8px;
     background-color: #424242;
     border: none;
@@ -85,14 +105,35 @@ select {
 }
 
 select:active {
-    width: 200px;
     padding: 8px;
     outline: #2f2f2f solid 1px;
     outline-offset: 2px;
 }
 
 select:focus {
-    width: 200px;
+    padding: 8px;
+    outline: #2f2f2f solid 1px;
+    outline-offset: 5px;
+    transform: scale(1.05)
+}
+
+input[type="text"] {
+    max-width: 400px;
+    padding: 8px;
+    background-color: #424242;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    transition-duration: 250ms;
+}
+
+input[type="text"]:active {
+    padding: 8px;
+    outline: #2f2f2f solid 1px;
+    outline-offset: 2px;
+}
+
+input[type="text"]:focus {
     padding: 8px;
     outline: #2f2f2f solid 1px;
     outline-offset: 5px;
@@ -146,5 +187,30 @@ legend {
 }
 
 fieldset {
-    padding: 24px;
+    overflow: auto;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #1f1f1f;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

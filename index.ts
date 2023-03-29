@@ -1,14 +1,14 @@
 import express from "express";
 import path from "path";
-import startWebSocket, { changeTeam, connectedClients } from "./websocket.js";
+import startWebSocket, { changeActivity, changeTeam, connectedClients } from "./websocket.js";
 
 console.log("Starting HTTP server...");
 
 const __dirname = path.resolve();
 
 const app = express();
-// Reason for port 80: https://docs.bitnami.com/general/infrastructure/nodejs/get-started/understand-default-ports/
-const port = 4000;
+// Port 3000 is the port configured on Lightsail
+const port = 3000;
 
 app.use(express.json());
 
@@ -41,6 +41,42 @@ app.post("/updateRotation", (req, res) => {
                 },
                 data: "OK"
             })
+        } else {
+            res.status(410).send({
+                error: {
+                    error: true,
+                    code: 410,
+                    message: "Gone",
+                    reason: "The socket provided is no longer connected. Refresh."
+                }
+            })
+        }
+    } else {
+        // Send error if token is wrong or not set
+        res.status(401).send({
+            error: {
+                error: true,
+                code: 401,
+                message: "Unauthorized"
+            }
+        })
+    }
+});
+
+app.post("/updateActivity", (req, res) => {
+    if (req.header("Authorization") === updateToken) {
+        console.log(req.body);
+        // Make sure typescript doesn't yell at us for uNdEfInEd VaRiAbLeS
+        if (connectedClients.find(element => element.id === req.body.id) != undefined) {
+            console.log("OK");
+            connectedClients.find(element => element.id === req.body.id)!.activity = req.body.toActivity;
+            changeActivity(req.body.id, req.body.toActivity);
+            res.send({
+                error: {
+                    error: false
+                },
+                data: "OK"
+            });
         }
     } else {
         // Send error if token is wrong or not set
