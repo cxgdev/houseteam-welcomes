@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 const params = new URLSearchParams(location.search);
 document.body.classList.add(params.get("team"));
 
-const serverURL = "http://localhost:3000";
+const serverURL = "https://motcharter.houseteams.cxgdev.com";
 const socket = io(serverURL, {
     query: {
         "room": params.get("room")
