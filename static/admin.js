@@ -1,4 +1,4 @@
-const serverURL = "http://localhost:3000";
+const serverURL = "https://motcharter.houseteams.cxgdev.com";
 
 function log(content) {
     console.log(content);
